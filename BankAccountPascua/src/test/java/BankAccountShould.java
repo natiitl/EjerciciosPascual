@@ -1,5 +1,6 @@
 import exceptions.DepositNegativeException;
 import exceptions.DepositNullException;
+import exceptions.WithdrawNegativeException;
 import exceptions.WithdrawZeroException;
 import org.junit.Test;
 
@@ -72,6 +73,13 @@ public class BankAccountShould {
         BankAccount bankAccount = new BankAccount();
 
         assertThrows(WithdrawZeroException.class, () -> bankAccount.withdraw(0));
+    }
+
+    @Test
+    public void raise_error_when_withdraw_is_negative(){
+        BankAccount bankAccount = new BankAccount();
+
+        assertThrows(WithdrawNegativeException.class, () -> bankAccount.withdraw(-20));
     }
 
 
