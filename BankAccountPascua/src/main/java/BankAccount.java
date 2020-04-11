@@ -6,6 +6,12 @@ import exceptions.WithdrawZeroException;
 public class BankAccount {
 
     int currentAmount = 0;
+    String printStatement;
+
+    public BankAccount(){
+        printStatement = "date       || credit   || debit    || balance";
+    }
+
 
     public void deposit(int amount) {
         if (amount == 0){
@@ -26,5 +32,10 @@ public class BankAccount {
             throw new WithdrawNegativeException("Withdraw amount can't be negative");
         }
         currentAmount -= amount;
+    }
+
+    public void printStatement() {
+
+
     }
 }

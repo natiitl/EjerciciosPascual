@@ -95,6 +95,14 @@ public class BankAccountShould {
         assertEquals(valueExpected, bankAccount.currentAmount);
     }
 
+    @Test
+    public void check_if_we_print_the_header_of_the_BankAccount(){
+        BankAccount bankAccount = new BankAccount();
+        String printExpected = "date       || credit   || debit    || balance";
+
+        assertEquals(printExpected, bankAccount.printStatement);
+    }
+
 
 
 
