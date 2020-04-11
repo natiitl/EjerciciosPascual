@@ -14,6 +14,17 @@ public class BankAccountShould {
         assertEquals(valueExpected, bankAccount.currentAmount);
     }
 
+    @Test
+    public void check_if_deposit_was_added_twice(){
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.deposit(500);
+        bankAccount.deposit(500);
+
+        int valueExpected = 1000;
+
+        assertEquals(valueExpected, bankAccount.currentAmount);
+    }
+
 
 
 }
