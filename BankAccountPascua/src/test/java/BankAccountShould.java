@@ -43,6 +43,18 @@ public class BankAccountShould {
     }
 
 
+    @Test
+    public void check_whithdraw(){
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.deposit(500);
+        bankAccount.whithdraw(400);
+
+        int valueExpected = 100;
+
+        assertEquals(valueExpected, bankAccount.currentAmount);
+    }
+
+
 
 
 

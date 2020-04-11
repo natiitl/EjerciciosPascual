@@ -16,4 +16,7 @@ public class BankAccount {
     }
 
 
+    public void whithdraw(int amount) {
+        currentAmount -= amount;
+    }
 }
