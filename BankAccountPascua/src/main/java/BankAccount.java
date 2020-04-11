@@ -1,5 +1,6 @@
 import exceptions.DepositNegativeException;
 import exceptions.DepositNullException;
+import exceptions.WithdrawZeroException;
 
 public class BankAccount {
 
@@ -16,7 +17,10 @@ public class BankAccount {
     }
 
 
-    public void whithdraw(int amount) {
+    public void withdraw(int amount) {
+        if (amount == 0){
+            throw new WithdrawZeroException("Withdraw amout can't be zero");
+        }
         currentAmount -= amount;
     }
 }

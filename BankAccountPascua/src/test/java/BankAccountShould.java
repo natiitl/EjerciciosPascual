@@ -1,5 +1,6 @@
 import exceptions.DepositNegativeException;
 import exceptions.DepositNullException;
+import exceptions.WithdrawZeroException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -47,13 +48,31 @@ public class BankAccountShould {
     public void check_whithdraw(){
         BankAccount bankAccount = new BankAccount();
         bankAccount.deposit(500);
-        bankAccount.whithdraw(400);
+        bankAccount.withdraw(400);
 
         int valueExpected = 100;
 
         assertEquals(valueExpected, bankAccount.currentAmount);
     }
 
+    @Test
+    public void check_whithdraw_twice(){
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.deposit(500);
+        bankAccount.withdraw(400);
+        bankAccount.withdraw(50);
+
+        int valueExpected = 50;
+
+        assertEquals(valueExpected, bankAccount.currentAmount);
+    }
+
+    @Test
+    public void raise_error_when_withdraw_is_zero(){
+        BankAccount bankAccount = new BankAccount();
+
+        assertThrows(WithdrawZeroException.class, () -> bankAccount.withdraw(0));
+    }
 
 
 
