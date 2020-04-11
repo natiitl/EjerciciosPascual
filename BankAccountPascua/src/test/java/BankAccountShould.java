@@ -82,6 +82,19 @@ public class BankAccountShould {
         assertThrows(WithdrawNegativeException.class, () -> bankAccount.withdraw(-20));
     }
 
+    @Test
+    public void check_different_operations_at_the_same_time(){
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.deposit(500);
+        bankAccount.withdraw(150);
+        bankAccount.deposit(300);
+        bankAccount.withdraw(200);
+
+        int valueExpected = 450;
+
+        assertEquals(valueExpected, bankAccount.currentAmount);
+    }
+
 
 
 
