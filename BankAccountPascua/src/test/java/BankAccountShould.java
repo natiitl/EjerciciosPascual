@@ -1,3 +1,4 @@
+import exceptions.DepositNegativeException;
 import exceptions.DepositNullException;
 import org.junit.Test;
 
@@ -33,6 +34,15 @@ public class BankAccountShould {
 
         assertThrows(DepositNullException.class, () -> bankAccount.deposit(0));
     }
+
+    @Test
+    public void raise_error_when_deposit_is_negative(){
+        BankAccount bankAccount = new BankAccount();
+
+        assertThrows(DepositNegativeException.class, () -> bankAccount.deposit(-20));
+    }
+
+
 
 
 
