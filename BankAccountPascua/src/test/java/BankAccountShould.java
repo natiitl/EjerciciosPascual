@@ -1,6 +1,8 @@
+import exceptions.DepositNullException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BankAccountShould {
 
@@ -24,6 +26,14 @@ public class BankAccountShould {
 
         assertEquals(valueExpected, bankAccount.currentAmount);
     }
+
+    @Test
+    public void raise_error_when_deposit_is_zero(){
+        BankAccount bankAccount = new BankAccount();
+
+        assertThrows(DepositNullException.class, () -> bankAccount.deposit(0));
+    }
+
 
 
 
