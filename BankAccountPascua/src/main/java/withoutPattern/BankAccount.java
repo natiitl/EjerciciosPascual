@@ -1,3 +1,5 @@
+package withoutPattern;
+
 import exceptions.DepositNegativeException;
 import exceptions.DepositNullException;
 import exceptions.WithdrawNegativeException;
@@ -5,8 +7,8 @@ import exceptions.WithdrawZeroException;
 
 public class BankAccount {
 
-    int currentAmount = 0;
-    String printStatement;
+    public int currentAmount = 0;
+    public String printStatement;
 
     public BankAccount(){
         printStatement = "date       || credit   || debit    || balance";

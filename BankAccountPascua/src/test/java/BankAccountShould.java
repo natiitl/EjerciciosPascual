@@ -3,6 +3,7 @@ import exceptions.DepositNullException;
 import exceptions.WithdrawNegativeException;
 import exceptions.WithdrawZeroException;
 import org.junit.Test;
+import withoutPattern.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
